@@ -1,3 +1,2 @@
 # ScoutingApp
-# Code for scouting app.
-# Test
+Code for Torbot's Scouting App.
