@@ -21,6 +21,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.GroupLayout;
 
 
 public class PracticeFrame extends javax.swing.JFrame {
@@ -109,10 +112,6 @@ public class PracticeFrame extends javax.swing.JFrame {
         autoPointCount = new javax.swing.JSpinner();
         foulPointCount = new javax.swing.JSpinner();
         catA = new javax.swing.JLabel();
-        catB = new javax.swing.JLabel();
-        catC = new javax.swing.JLabel();
-        catD = new javax.swing.JLabel();
-        other = new javax.swing.JLabel();
         seeSawTxt = new javax.swing.JLabel();
         moatTxt = new javax.swing.JLabel();
         drawbridgeTxt = new javax.swing.JLabel();
@@ -126,8 +125,6 @@ public class PracticeFrame extends javax.swing.JFrame {
         lowGoalTxt = new javax.swing.JLabel();
         teamNumTxt = new javax.swing.JTextField();
         theTeamNum = new javax.swing.JLabel();
-        teamName = new javax.swing.JLabel();
-        teamNameTxt = new javax.swing.JTextField();
         match = new javax.swing.JLabel();
         matchNumTxt = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
@@ -228,22 +225,6 @@ public class PracticeFrame extends javax.swing.JFrame {
         catA.setText("Category A");
         catA.setToolTipText("");
 
-        catB.setFont(new java.awt.Font("Tekton Pro", 1, 14)); // NOI18N
-        catB.setText("Category B");
-        catB.setToolTipText("");
-
-        catC.setFont(new java.awt.Font("Tekton Pro", 1, 14)); // NOI18N
-        catC.setText("Category C");
-        catC.setToolTipText("");
-
-        catD.setFont(new java.awt.Font("Tekton Pro", 1, 14)); // NOI18N
-        catD.setText("Category D");
-        catD.setToolTipText("");
-
-        other.setFont(new java.awt.Font("Tekton Pro", 1, 14)); // NOI18N
-        other.setText("Other");
-        other.setToolTipText("");
-
         seeSawTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
         seeSawTxt.setText("See-Saw");
         seeSawTxt.setToolTipText("");
@@ -327,21 +308,6 @@ public class PracticeFrame extends javax.swing.JFrame {
         theTeamNum.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
         theTeamNum.setText("Team #");
         theTeamNum.setToolTipText("");
-
-        teamName.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        teamName.setText("Team Name");
-        teamName.setToolTipText("");
-
-        teamNameTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        teamNameTxt.setToolTipText("");
-        teamNameTxt.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                teamNameTxtFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                teamNameTxtFocusLost(evt);
-            }
-        });
 
         match.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
         match.setText("Match #");
@@ -514,258 +480,226 @@ public class PracticeFrame extends javax.swing.JFrame {
         jLabel1.setText("Overall Scoring for the Match");
 
         javax.swing.GroupLayout InternalFrameLayout = new javax.swing.GroupLayout(InternalFrame);
-        InternalFrame.setLayout(InternalFrameLayout);
         InternalFrameLayout.setHorizontalGroup(
-            InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InternalFrameLayout.createSequentialGroup()
-                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(StandScout)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel30))
-                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(InternalFrameLayout.createSequentialGroup()
-                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                .addComponent(theTeamNum)
-                                                .addGap(147, 147, 147)
-                                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(teamName)
-                                                    .addComponent(teamNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                .addGap(413, 413, 413)
-                                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(match)
-                                                    .addComponent(matchNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(teamNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                                        .addComponent(Calculate)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(calculated, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel21)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(InternalFrameLayout.createSequentialGroup()
-                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                                        .addGap(598, 598, 598)
-                                        .addComponent(jLabel35))
-                                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(capture1)
-                                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                                        .addComponent(breach)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(capture))
-                                    .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InternalFrameLayout.createSequentialGroup()
-                                            .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(catA)
-                                                    .addComponent(gatewayCount, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(seeSawCount, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(gatewayTxt))
-                                            .addGap(22, 22, 22)
-                                            .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(rampartsTxt)
-                                                .addComponent(moatCount, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(rampartsCount, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                    .addGap(1, 1, 1)
-                                                    .addComponent(catB))
-                                                .addComponent(moatTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(18, 18, 18)
-                                            .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(catC)
-                                                .addComponent(drawbridgeTxt)
-                                                .addComponent(doorCount, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(doorTxt)
-                                                .addComponent(drawbridgeCount, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                    .addGap(21, 21, 21)
-                                                    .addComponent(catD)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                    .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addComponent(roughtTerrainTxt)
-                                                            .addGap(86, 86, 86))
-                                                        .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                            .addGap(18, 18, 18)
-                                                            .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(roughTerrainCount, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                                    .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(rockWallCount, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(rockWallTxt))
-                                                                    .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                                            .addGap(21, 21, 21)
-                                                                            .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addComponent(lowBarTxt)
-                                                                                .addComponent(other)))
-                                                                        .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                                            .addGap(18, 18, 18)
-                                                                            .addComponent(lowBarCount, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(highGoalCount, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(highGoalTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(lowGoalTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(lowGoalCount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                        .addGroup(InternalFrameLayout.createSequentialGroup()
-                                            .addGap(6, 6, 6)
-                                            .addComponent(seeSawTxt))))
-                                .addGap(221, 221, 221))
-                            .addGroup(InternalFrameLayout.createSequentialGroup()
-                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                                        .addComponent(autoPointCount)
-                                        .addGap(91, 91, 91))
-                                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                                        .addComponent(auto)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                                        .addComponent(telePointCount)
-                                        .addGap(601, 601, 601))
-                                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                                        .addComponent(tele)
-                                        .addGap(76, 76, 76)
-                                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(foulPointCount, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(foul))
-                                        .addGap(75, 75, 75)
-                                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(totalCounting)
-                                            .addComponent(totalPointCount, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2))
-                .addGap(33, 33, 33))
+        	InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(InternalFrameLayout.createSequentialGroup()
+        			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(InternalFrameLayout.createSequentialGroup()
+        					.addGap(192)
+        					.addComponent(StandScout)
+        					.addPreferredGap(ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
+        					.addComponent(jLabel30))
+        				.addGroup(InternalFrameLayout.createSequentialGroup()
+        					.addGap(28)
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(InternalFrameLayout.createSequentialGroup()
+        							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(InternalFrameLayout.createSequentialGroup()
+        									.addGap(6)
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(theTeamNum)
+        										.addComponent(teamNumTxt, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
+        									.addGap(118)
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(matchNumTxt, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(match)))
+        								.addGroup(InternalFrameLayout.createSequentialGroup()
+        									.addComponent(Calculate)
+        									.addPreferredGap(ComponentPlacement.RELATED)
+        									.addComponent(calculated, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
+        									.addPreferredGap(ComponentPlacement.UNRELATED)
+        									.addComponent(jButton1)
+        									.addPreferredGap(ComponentPlacement.RELATED, 469, Short.MAX_VALUE)
+        									.addComponent(jLabel21)))
+        							.addPreferredGap(ComponentPlacement.RELATED))
+        						.addGroup(InternalFrameLayout.createSequentialGroup()
+        							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(jLabel1)
+        								.addGroup(InternalFrameLayout.createSequentialGroup()
+        									.addGap(598)
+        									.addComponent(jLabel35))
+        								.addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
+        								.addGroup(InternalFrameLayout.createSequentialGroup()
+        									.addComponent(breach)
+        									.addGap(18)
+        									.addComponent(capture)
+        									.addGap(18)
+        									.addComponent(capture1))
+        								.addGroup(InternalFrameLayout.createSequentialGroup()
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.TRAILING)
+        										.addGroup(InternalFrameLayout.createSequentialGroup()
+        											.addGap(4)
+        											.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        												.addComponent(gatewayTxt)
+        												.addComponent(catA))
+        											.addGap(22))
+        										.addGroup(InternalFrameLayout.createSequentialGroup()
+        											.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        												.addComponent(seeSawTxt)
+        												.addComponent(gatewayCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
+        											.addGap(18))
+        										.addGroup(InternalFrameLayout.createSequentialGroup()
+        											.addComponent(seeSawCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+        											.addGap(18)))
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(rampartsTxt)
+        										.addComponent(moatCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(rampartsCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(moatTxt, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
+        									.addGap(18)
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(drawbridgeTxt)
+        										.addComponent(doorCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(doorTxt)
+        										.addComponent(drawbridgeCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
+        									.addGap(18)
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(roughTerrainCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+        										.addGroup(InternalFrameLayout.createSequentialGroup()
+        											.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        												.addComponent(rockWallCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+        												.addComponent(rockWallTxt))
+        											.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        												.addGroup(InternalFrameLayout.createSequentialGroup()
+        													.addGap(21)
+        													.addComponent(lowBarTxt))
+        												.addGroup(InternalFrameLayout.createSequentialGroup()
+        													.addGap(18)
+        													.addComponent(lowBarCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))))
+        										.addComponent(roughtTerrainTxt))
+        									.addPreferredGap(ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(lowGoalTxt)
+        										.addGroup(InternalFrameLayout.createParallelGroup(Alignment.TRAILING)
+        											.addComponent(highGoalCount, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+        											.addComponent(highGoalTxt, Alignment.LEADING)
+        											.addComponent(lowGoalCount, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)))))
+        							.addGap(221))
+        						.addGroup(InternalFrameLayout.createSequentialGroup()
+        							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(autoPointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(auto))
+        							.addPreferredGap(ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+        							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(telePointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        								.addGroup(InternalFrameLayout.createSequentialGroup()
+        									.addComponent(tele)
+        									.addGap(76)
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(foulPointCount, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(foul))
+        									.addGap(75)
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(totalCounting)
+        										.addComponent(totalPointCount, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE))))
+        							.addGap(214)))))
+        			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING, false)
+        				.addGroup(InternalFrameLayout.createSequentialGroup()
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+        				.addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(33))
         );
         InternalFrameLayout.setVerticalGroup(
-            InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InternalFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel30)
-                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                        .addComponent(StandScout)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel35)
-                        .addGap(13, 13, 13)
-                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(theTeamNum)
-                            .addComponent(teamName)
-                            .addComponent(match))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(teamNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(teamNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(matchNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(InternalFrameLayout.createSequentialGroup()
-                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                                        .addComponent(catC, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                .addGap(75, 75, 75)
-                                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(doorTxt)
-                                                    .addComponent(rampartsTxt)
-                                                    .addComponent(seeSawTxt)
-                                                    .addComponent(roughtTerrainTxt)))
-                                            .addGroup(InternalFrameLayout.createSequentialGroup()
-                                                .addGap(20, 20, 20)
-                                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(moatTxt)
-                                                    .addComponent(drawbridgeTxt)
-                                                    .addComponent(rockWallTxt)
-                                                    .addComponent(lowBarTxt)))))
-                                    .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(catD)
-                                        .addComponent(other))
-                                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                                        .addGap(37, 37, 37)
-                                        .addComponent(gatewayTxt)))
-                                .addGap(0, 0, 0)
-                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(doorCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(roughTerrainCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rampartsCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(seeSawCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lowGoalCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(InternalFrameLayout.createSequentialGroup()
-                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(catB)
-                                            .addComponent(catA))
-                                        .addGap(43, 43, 43))
-                                    .addComponent(highGoalTxt, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(moatCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(drawbridgeCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rockWallCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(gatewayCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lowBarCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(highGoalCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lowGoalTxt)))
-                        .addGap(18, 18, 18)
-                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(breach)
-                            .addComponent(capture))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(capture1))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(InternalFrameLayout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane2))
-                        .addContainerGap())
-                    .addGroup(InternalFrameLayout.createSequentialGroup()
-                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Calculate)
-                            .addComponent(calculated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(21, 21, 21)
-                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(auto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tele)
-                            .addComponent(foul)
-                            .addComponent(totalCounting))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(InternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(foulPointCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(telePointCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(autoPointCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(totalPointCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(85, 85, 85)
-                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))))
+        	InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(InternalFrameLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING, false)
+        				.addComponent(jLabel30)
+        				.addGroup(InternalFrameLayout.createSequentialGroup()
+        					.addComponent(StandScout)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(jLabel35)
+        					.addGap(13)
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(theTeamNum)
+        						.addComponent(match))
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(teamNumTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(matchNumTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(InternalFrameLayout.createSequentialGroup()
+        							.addGap(20)
+        							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(InternalFrameLayout.createSequentialGroup()
+        									.addGap(75)
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        										.addComponent(doorTxt)
+        										.addComponent(rampartsTxt)
+        										.addComponent(lowGoalTxt)))
+        								.addGroup(InternalFrameLayout.createSequentialGroup()
+        									.addGap(20)
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        										.addComponent(moatTxt)
+        										.addComponent(drawbridgeTxt)
+        										.addComponent(rockWallTxt)
+        										.addComponent(lowBarTxt))
+        									.addGap(36)
+        									.addComponent(roughtTerrainTxt))))
+        						.addGroup(InternalFrameLayout.createSequentialGroup()
+        							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(InternalFrameLayout.createSequentialGroup()
+        									.addComponent(catA)
+        									.addGap(18)
+        									.addComponent(gatewayTxt)
+        									.addGap(6))
+        								.addComponent(highGoalTxt, Alignment.TRAILING))
+        							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        								.addComponent(moatCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(drawbridgeCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(rockWallCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(lowBarCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(highGoalCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(gatewayCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addComponent(seeSawTxt)))
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(doorCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(roughTerrainCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(rampartsCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(lowGoalCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(seeSawCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        					.addGap(18)
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(breach)
+        						.addComponent(capture)
+        						.addComponent(capture1))
+        					.addGap(34))
+        				.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 377, GroupLayout.PREFERRED_SIZE))
+        			.addGap(18)
+        			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(InternalFrameLayout.createSequentialGroup()
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(jLabel21)
+        						.addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        					.addContainerGap())
+        				.addGroup(InternalFrameLayout.createSequentialGroup()
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(Calculate)
+        						.addComponent(calculated, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
+        					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        					.addComponent(jLabel1)
+        					.addGap(21)
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(auto, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(tele)
+        						.addComponent(foul)
+        						.addComponent(totalCounting))
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(foulPointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(telePointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(autoPointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(totalPointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        					.addGap(85)
+        					.addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+        					.addGap(26))))
         );
+        InternalFrame.setLayout(InternalFrameLayout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -857,43 +791,6 @@ public class PracticeFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         matchNumTxt.setText("");
     }//GEN-LAST:event_matchNumTxtFocusGained
-
-    private void teamNameTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_teamNameTxtFocusLost
-        // TODO add your handling code here:
-        name = teamNameTxt.getText();
-        try {
-            teamNumb = Integer.parseInt(teamNumTxt.getText());
-        } catch (NumberFormatException e) {
-            teamNumTxt.setText("Enter Valid Number");
-        }
-        //        String filename = "Team Number " + teamNumb + " " + name + ".txt";
-        //        BufferedReader br = null;
-        //        String text = "";
-        //        String str;
-        //        try {
-            //
-            //            br = new BufferedReader(new FileReader(filename));
-            //            while ((str = br.readLine()) != null) {
-                //                text += str + "\n";
-                //                jTextArea3.setText(text);
-                //            }
-            //        } catch (FileNotFoundException e) {
-            //            System.out.println("Fail");
-            //        } catch (IOException e) {
-            //        } finally {
-            //            if (br != null) {
-                //                try {
-                    //                    br.close();
-                    //                } catch (IOException e) {
-                    //                }
-                //            }
-            //        }
-    }//GEN-LAST:event_teamNameTxtFocusLost
-
-    private void teamNameTxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_teamNameTxtFocusGained
-        // TODO add your handling code here:
-        teamNameTxt.setText("");
-    }//GEN-LAST:event_teamNameTxtFocusGained
 
     private void teamNumTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamNumTxtActionPerformed
         // TODO add your handling code here:
@@ -1051,25 +948,22 @@ public class PracticeFrame extends javax.swing.JFrame {
 
     public void clearForm() {
         teamNumTxt.setText("");
-        teamNameTxt.setText("");
         matchNumTxt.setText("");
         jTextArea1.setText("Autonomous Points:\n"
                 + "\n"
-                + "REACHING a DEFENSE = 2 Points\n"
-                + "CROSSING an UNDAMAGED DEFENSE = 10 Points\n"
-                + "BOULDER in Low TOWER GOAL = 5 Points\n"
-                + "BOULDER in High TOWER GOAL = 10 Points\n"
+                + "REACHING the BASELINE = 5 Points\n"
+                + "3 FUEL in Low Efficiency GOAL = 1 Point and 1 kPa\n"
+                + "1 FUEL in High Efficiency GOAL = 1 Point and 1 kPa\n"
+                + "Each ROTOR Turning = 60 Points\n"
                 + "\n"
                 + "Tele-Op Points:\n"
-                + "CROSSING an UNDAMAGED DEFENSE = 5 Points\n"
-                + "BOULDER in Low TOWER GOAL = 2 Points\n"
-                + "BOULDER in High TOWER GOAL = 5 Points\n"
+                + "9 FUEL in Low Efficiency GOAL = 1 Point and 1 kPa\n"
+                + "3 FUEL in High Efficiency GOAL = 1 Point and 1 kPa\n"
+                + "Each ROTOR Turning = 40 Points\n"
+                + "TOUCHPAD activated by a ROBOT = 50 Points\n"
                 + "\n"
-                + "CHALLENGE (WAIT IN STRONG HOLD ZONE) = 5 Points\n"
-                + "\n"
-                + "SCALE (CLIMB UP STRONG HOLD) = 15 Points\n"
-                + "BREACH = 1 RANKING Point (20 Points in Playoff Rounds)" + "\n"
-                + "Capture = 1 RANKING Point (25 Points in Playoff Rounds)");
+                + "All 4 ROTORS Turning = 1 RANKING Point (100 Points in Playoff Rounds)" + "\n"
+                + "ALLIANCE meets or exceeds 40 kPa = 1 RANKING Point (20 Points in Playoff Rounds)");
         extra.setText(" ");
         //jTextArea3.setText(" ");
         saveButton.setText("Save");
@@ -1099,7 +993,7 @@ public class PracticeFrame extends javax.swing.JFrame {
     JPanel panel1 = new JPanel();
     ImageIcon pic = new ImageIcon("Portcullis.png");
     panel1.add(new JLabel(pic));
-    this.add(panel1);
+    getContentPane().add(panel1);
     this.pack();
     this.setVisible(true);
   }
@@ -1149,9 +1043,6 @@ public class PracticeFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox capture;
     private javax.swing.JCheckBox capture1;
     private javax.swing.JLabel catA;
-    private javax.swing.JLabel catB;
-    private javax.swing.JLabel catC;
-    private javax.swing.JLabel catD;
     private javax.swing.JSpinner doorCount;
     private javax.swing.JLabel doorTxt;
     private javax.swing.JSpinner drawbridgeCount;
@@ -1181,7 +1072,6 @@ public class PracticeFrame extends javax.swing.JFrame {
     private javax.swing.JTextField matchNumTxt;
     private javax.swing.JSpinner moatCount;
     private javax.swing.JLabel moatTxt;
-    private javax.swing.JLabel other;
     private javax.swing.JSpinner rampartsCount;
     private javax.swing.JLabel rampartsTxt;
     private javax.swing.JSpinner rockWallCount;
@@ -1191,8 +1081,6 @@ public class PracticeFrame extends javax.swing.JFrame {
     private javax.swing.JButton saveButton;
     private javax.swing.JSpinner seeSawCount;
     private javax.swing.JLabel seeSawTxt;
-    private javax.swing.JLabel teamName;
-    private javax.swing.JTextField teamNameTxt;
     private javax.swing.JTextField teamNumTxt;
     private javax.swing.JLabel tele;
     private javax.swing.JSpinner telePointCount;
