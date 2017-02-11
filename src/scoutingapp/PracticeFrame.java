@@ -38,15 +38,15 @@ public class PracticeFrame extends javax.swing.JFrame {
     int foulPoints;
     int gamePoints;
     String name;
-    int gateway;
-    int moat;
-    int drawbridge;
-    int rockWall;
+    int autoGears;
+    int autoLowGoal;
+    int autoHighGoal;
     int lowBar;
-    int seeSaw;
-    int ramparts;
-    int door;
-    int roughTerrain;
+    int teleGears;
+    int teleLowGoal;
+    int teleHighGoal;
+    boolean touchPad;
+    boolean baseline;
     int high;
     int low;
     int total;
@@ -76,15 +76,15 @@ public class PracticeFrame extends javax.swing.JFrame {
         foulPoints = 0;
         gamePoints = 0;
         name = "";
-        gateway = 0;
-        moat = 0;
-        drawbridge = 0;
-        rockWall = 0;
+        baseline = false;
+        autoGears = 0;
+        autoLowGoal = 0;
+        autoHighGoal = 0;
         lowBar = 0;
-        seeSaw = 0;
-        ramparts = 0;
-        door = 0;
-        roughTerrain = 0;
+        teleGears = 0;
+        teleLowGoal = 0;
+        teleHighGoal = 0;
+        touchPad = false;
         high = 0;
         low = 0;
         extraPoints = 0;
@@ -104,49 +104,31 @@ public class PracticeFrame extends javax.swing.JFrame {
         textArea1 = new java.awt.TextArea();
         jDialog1 = new javax.swing.JDialog();
         InternalFrame = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         StandScout = new javax.swing.JLabel();
-        auto = new javax.swing.JLabel();
-        foul = new javax.swing.JLabel();
-        tele = new javax.swing.JLabel();
-        telePointCount = new javax.swing.JSpinner();
-        autoPointCount = new javax.swing.JSpinner();
-        foulPointCount = new javax.swing.JSpinner();
         autoScoring = new javax.swing.JLabel();
-        seeSawTxt = new javax.swing.JLabel();
-        moatTxt = new javax.swing.JLabel();
-        drawbridgeTxt = new javax.swing.JLabel();
-        rockWallTxt = new javax.swing.JLabel();
-        moatCount = new javax.swing.JSpinner();
-        drawbridgeCount = new javax.swing.JSpinner();
+        teleGearsTxt = new javax.swing.JLabel();
+        autoGearsTxt = new javax.swing.JLabel();
+        autoLowGoalTxt = new javax.swing.JLabel();
+        autoHighGoalTxt = new javax.swing.JLabel();
+        autoGearsCount = new javax.swing.JSpinner();
+        autoLowGoalCount = new javax.swing.JSpinner();
         teamNumTxt = new javax.swing.JTextField();
         theTeamNum = new javax.swing.JLabel();
         match = new javax.swing.JLabel();
         matchNumTxt = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        breach = new javax.swing.JCheckBox();
         jLabel21 = new javax.swing.JLabel();
-        totalCounting = new javax.swing.JLabel();
-        calculated = new javax.swing.JTextField();
-        Calculate = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
-        rampartsTxt = new javax.swing.JLabel();
-        doorTxt = new javax.swing.JLabel();
+        teleLowGoalTxt = new javax.swing.JLabel();
+        teleHighGoalTxt = new javax.swing.JLabel();
         baselineTxt = new javax.swing.JLabel();
-        roughtTerrainTxt = new javax.swing.JLabel();
+        touchPadTxt = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        seeSawCount = new javax.swing.JSpinner();
-        rampartsCount = new javax.swing.JSpinner();
-        doorCount = new javax.swing.JSpinner();
-        roughTerrainCount = new javax.swing.JSpinner();
-        rockWallCount = new javax.swing.JSpinner();
-        capture = new javax.swing.JCheckBox();
-        totalPointCount = new javax.swing.JSpinner();
-        capture1 = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
+        teleGearsCount = new javax.swing.JSpinner();
+        teleLowGoalCount = new javax.swing.JSpinner();
+        teleHighGoalCount = new javax.swing.JSpinner();
+        autoHighGoalCount = new javax.swing.JSpinner();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -164,106 +146,46 @@ public class PracticeFrame extends javax.swing.JFrame {
         InternalFrame.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.red, java.awt.Color.black));
         InternalFrame.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Autonomous Points:\n"
-                + "\n"
-                + "REACHING the BASELINE = 5 Points\n"
-                + "3 FUEL in Low Efficiency GOAL = 1 Point and 1 kPa\n"
-                + "1 FUEL in High Efficiency GOAL = 1 Point and 1 kPa\n"
-                + "Each ROTOR Turning = 60 Points\n"
-                + "\n"
-                + "Tele-Op Points:\n"
-                + "9 FUEL in Low Efficiency GOAL = 1 Point and 1 kPa\n"
-                + "3 FUEL in High Efficiency GOAL = 1 Point and 1 kPa\n"
-                + "Each ROTOR Turning = 40 Points\n"
-                + "TOUCHPAD activated by a ROBOT = 50 Points\n"
-                + "\n"
-                + "All 4 ROTORS Turning = 1 RANKING Point (100 Points in Playoff Rounds)" + "\n"
-                + "ALLIANCE meets or exceeds 40 kPa = 1 RANKING Point (20 Points in Playoff Rounds)"); // NOI18N
-        jScrollPane1.setViewportView(jTextArea1);
-
         StandScout.setFont(new java.awt.Font("Tekton Pro", 1, 20)); // NOI18N
         StandScout.setText("Torbots Stand Scouting");
         StandScout.setToolTipText("");
         StandScout.setAlignmentX(0.5F);
 
-        auto.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        auto.setText("Autonomous Points");
-        auto.setToolTipText("");
-
-        foul.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        foul.setText("Foul Points?");
-        foul.setToolTipText("");
-
-        tele.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        tele.setText("Tele-Op Points");
-        tele.setToolTipText("");
-
-        telePointCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        telePointCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        telePointCount.setToolTipText("");
-        telePointCount.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                telePointCountFocusLost(evt);
-            }
-        });
-
-        autoPointCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        autoPointCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        autoPointCount.setToolTipText("");
-        autoPointCount.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                autoPointCountFocusLost(evt);
-            }
-        });
-
-        foulPointCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        foulPointCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        foulPointCount.setToolTipText("");
-        foulPointCount.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                foulPointCountFocusLost(evt);
-            }
-        });
-
         autoScoring.setFont(new java.awt.Font("Tekton Pro", 1, 14)); // NOI18N
         autoScoring.setText("Autonomous");
         autoScoring.setToolTipText("");
 
-        seeSawTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        seeSawTxt.setText("See-Saw");
-        seeSawTxt.setToolTipText("");
+        teleGearsTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        teleGearsTxt.setText("Gears Delivered");
+        teleGearsTxt.setToolTipText("");
 
-        moatTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        moatTxt.setText("Moat");
-        moatTxt.setToolTipText("");
+        autoGearsTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        autoGearsTxt.setText("Gears Delivered");
+        autoGearsTxt.setToolTipText("");
 
-        drawbridgeTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        drawbridgeTxt.setText("Drawbridge");
-        drawbridgeTxt.setToolTipText("");
+        autoLowGoalTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        autoLowGoalTxt.setText("Low Goal");
+        autoLowGoalTxt.setToolTipText("");
 
-        rockWallTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        rockWallTxt.setText("Rock Wall");
-        rockWallTxt.setToolTipText("");
+        autoHighGoalTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        autoHighGoalTxt.setText("High Goal");
+        autoHighGoalTxt.setToolTipText("");
 
-        moatCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        moatCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
-        moatCount.setToolTipText("");
-        moatCount.addFocusListener(new java.awt.event.FocusAdapter() {
+        autoGearsCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        autoGearsCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
+        autoGearsCount.setToolTipText("");
+        autoGearsCount.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                moatCountFocusLost(evt);
+                autoGearsCountFocusLost(evt);
             }
         });
 
-        drawbridgeCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        drawbridgeCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
-        drawbridgeCount.setToolTipText("");
-        drawbridgeCount.addFocusListener(new java.awt.event.FocusAdapter() {
+        autoLowGoalCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        autoLowGoalCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
+        autoLowGoalCount.setToolTipText("");
+        autoLowGoalCount.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                drawbridgeCountFocusLost(evt);
+                autoLowGoalCountFocusLost(evt);
             }
         });
 
@@ -310,133 +232,65 @@ public class PracticeFrame extends javax.swing.JFrame {
             }
         });
 
-        breach.setFont(new java.awt.Font("Tekton Pro", 0, 16)); // NOI18N
-        breach.setText("Breach?");
-        breach.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                breachActionPerformed(evt);
-            }
-        });
-
         jLabel21.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
         jLabel21.setText("Notes:");
-
-        totalCounting.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        totalCounting.setText("Total Alliance Points");
-        totalCounting.setToolTipText("");
-
-        calculated.setEditable(false);
-        calculated.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-
-        Calculate.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
-        Calculate.setText("Calculate Points");
-
-        jButton1.setFont(new java.awt.Font("Tekton Pro", 0, 12)); // NOI18N
-        jButton1.setText("Calculate");
-        jButton1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jButton1FocusGained(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel30.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
         jLabel30.setText("Scoring Info:");
 
-        rampartsTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        rampartsTxt.setText("Ramparts");
-        rampartsTxt.setToolTipText("");
+        teleLowGoalTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        teleLowGoalTxt.setText("Low Goal");
+        teleLowGoalTxt.setToolTipText("");
 
-        doorTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        doorTxt.setText("Door");
-        doorTxt.setToolTipText("");
+        teleHighGoalTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        teleHighGoalTxt.setText("High Goal");
+        teleHighGoalTxt.setToolTipText("");
 
         baselineTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
         baselineTxt.setText("Baseline");
         baselineTxt.setToolTipText("");
 
-        roughtTerrainTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        roughtTerrainTxt.setText("Rough Terrain");
-        roughtTerrainTxt.setToolTipText("");
+        touchPadTxt.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        touchPadTxt.setText("Touchpad");
+        touchPadTxt.setToolTipText("");
 
         jLabel35.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
 
-        seeSawCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        seeSawCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
-        seeSawCount.setToolTipText("");
-        seeSawCount.addFocusListener(new java.awt.event.FocusAdapter() {
+        teleGearsCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        teleGearsCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
+        teleGearsCount.setToolTipText("");
+        teleGearsCount.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                seeSawCountFocusLost(evt);
+                teleGearsCountFocusLost(evt);
             }
         });
 
-        rampartsCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        rampartsCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
-        rampartsCount.setToolTipText("");
-        rampartsCount.addFocusListener(new java.awt.event.FocusAdapter() {
+        teleLowGoalCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        teleLowGoalCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
+        teleLowGoalCount.setToolTipText("");
+        teleLowGoalCount.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                rampartsCountFocusLost(evt);
+                teleLowGoalCountFocusLost(evt);
             }
         });
 
-        doorCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        doorCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
-        doorCount.setToolTipText("");
-        doorCount.addFocusListener(new java.awt.event.FocusAdapter() {
+        teleHighGoalCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        teleHighGoalCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
+        teleHighGoalCount.setToolTipText("");
+        teleHighGoalCount.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                doorCountFocusLost(evt);
+                teleHighGoalCountFocusLost(evt);
             }
         });
 
-        roughTerrainCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        roughTerrainCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
-        roughTerrainCount.setToolTipText("");
-        roughTerrainCount.addFocusListener(new java.awt.event.FocusAdapter() {
+        autoHighGoalCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+        autoHighGoalCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
+        autoHighGoalCount.setToolTipText("");
+        autoHighGoalCount.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                roughTerrainCountFocusLost(evt);
+                autoHighGoalCountFocusLost(evt);
             }
         });
-
-        rockWallCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        rockWallCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, 8, 1));
-        rockWallCount.setToolTipText("");
-        rockWallCount.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                rockWallCountFocusLost(evt);
-            }
-        });
-
-        capture.setFont(new java.awt.Font("Tekton Pro", 0, 16)); // NOI18N
-        capture.setText("Capture?");
-        capture.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                captureActionPerformed(evt);
-            }
-        });
-
-        totalPointCount.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
-        totalPointCount.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        totalPointCount.setToolTipText("");
-        totalPointCount.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                totalPointCountFocusLost(evt);
-            }
-        });
-
-        capture1.setFont(new java.awt.Font("Tekton Pro", 0, 16)); // NOI18N
-        capture1.setText("Climbing?");
-        capture1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                capture1ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 21)); // NOI18N
-        jLabel1.setText("Overall Scoring for the Match");
         extra = new javax.swing.JTextArea();
         
                 extra.setColumns(20);
@@ -450,6 +304,31 @@ public class PracticeFrame extends javax.swing.JFrame {
         label.setFont(new Font("Dialog", Font.BOLD, 14));
         
         JCheckBox baseline = new JCheckBox("Reached?");
+        baseline.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        
+        JCheckBox chckbxActivated = new JCheckBox("Activated?");
+        chckbxActivated.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        jTextArea1 = new javax.swing.JTextArea();
+        
+                jTextArea1.setEditable(false);
+                jTextArea1.setColumns(20);
+                jTextArea1.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
+                jTextArea1.setRows(5);
+                jTextArea1.setText("Autonomous Points:\n"
+                        + "\n"
+                        + "REACHING the BASELINE = 5 Points\n"
+                        + "3 FUEL in Low Efficiency GOAL = 1 Point and 1 kPa\n"
+                        + "1 FUEL in High Efficiency GOAL = 1 Point and 1 kPa\n"
+                        + "Each ROTOR Turning = 60 Points\n"
+                        + "\n"
+                        + "Tele-Op Points:\n"
+                        + "9 FUEL in Low Efficiency GOAL = 1 Point and 1 kPa\n"
+                        + "3 FUEL in High Efficiency GOAL = 1 Point and 1 kPa\n"
+                        + "Each ROTOR Turning = 40 Points\n"
+                        + "TOUCHPAD activated by a ROBOT = 50 Points\n"
+                        + "\n"
+                        + "All 4 ROTORS Turning = 1 RANKING Point (100 Points in Playoff Rounds)" + "\n"
+                        + "ALLIANCE meets or exceeds 40 kPa = 1 RANKING Point (20 Points in Playoff Rounds)");
 
         javax.swing.GroupLayout InternalFrameLayout = new javax.swing.GroupLayout(InternalFrame);
         InternalFrameLayout.setHorizontalGroup(
@@ -458,110 +337,83 @@ public class PracticeFrame extends javax.swing.JFrame {
         			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
         				.addGroup(InternalFrameLayout.createSequentialGroup()
         					.addGap(192)
-        					.addComponent(StandScout)
-        					.addPreferredGap(ComponentPlacement.RELATED, 563, Short.MAX_VALUE)
-        					.addComponent(jLabel30))
+        					.addComponent(StandScout))
         				.addGroup(InternalFrameLayout.createSequentialGroup()
         					.addGap(28)
         					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
         						.addGroup(InternalFrameLayout.createSequentialGroup()
+        							.addGap(6)
         							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        								.addGroup(InternalFrameLayout.createSequentialGroup()
-        									.addGap(6)
-        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        										.addComponent(theTeamNum)
-        										.addComponent(teamNumTxt, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
-        									.addGap(118)
-        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        										.addComponent(matchNumTxt, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-        										.addComponent(match)))
-        								.addGroup(InternalFrameLayout.createSequentialGroup()
-        									.addComponent(Calculate)
-        									.addPreferredGap(ComponentPlacement.RELATED)
-        									.addComponent(calculated, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
-        									.addPreferredGap(ComponentPlacement.UNRELATED)
-        									.addComponent(jButton1)))
-        							.addPreferredGap(ComponentPlacement.RELATED, 463, Short.MAX_VALUE))
+        								.addComponent(theTeamNum)
+        								.addComponent(teamNumTxt, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
+        							.addGap(118)
+        							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(matchNumTxt, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(match)))
         						.addGroup(InternalFrameLayout.createSequentialGroup()
+        							.addGap(137)
         							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        								.addComponent(jLabel1)
-        								.addGroup(InternalFrameLayout.createSequentialGroup()
-        									.addGap(598)
-        									.addComponent(jLabel35))
-        								.addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
-        								.addGroup(InternalFrameLayout.createSequentialGroup()
-        									.addPreferredGap(ComponentPlacement.RELATED)
-        									.addComponent(breach)
-        									.addGap(18)
-        									.addComponent(capture)
-        									.addGap(18)
-        									.addComponent(capture1))
-        								.addGroup(InternalFrameLayout.createSequentialGroup()
-        									.addGap(4)
-        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        										.addComponent(autoScoring)
-        										.addGroup(InternalFrameLayout.createSequentialGroup()
-        											.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        												.addComponent(seeSawTxt)
-        												.addComponent(seeSawCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-        												.addComponent(baselineTxt)
-        												.addComponent(baseline))
-        											.addGap(42)
-        											.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        												.addComponent(rampartsCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-        												.addComponent(rampartsTxt)
-        												.addComponent(moatCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-        												.addComponent(moatTxt, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
-        											.addGap(44)
-        											.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        												.addComponent(drawbridgeTxt)
-        												.addComponent(doorCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-        												.addComponent(doorTxt)
-        												.addComponent(drawbridgeCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
-        											.addGap(46)
-        											.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        												.addComponent(rockWallCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-        												.addComponent(rockWallTxt)
-        												.addComponent(roughtTerrainTxt)
-        												.addComponent(roughTerrainCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)))
-        										.addComponent(label, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE))))
-        							.addPreferredGap(ComponentPlacement.RELATED, 189, Short.MAX_VALUE))
+        								.addComponent(teleGearsTxt)
+        								.addComponent(teleGearsCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(autoGearsTxt)
+        								.addComponent(autoGearsCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)))
         						.addGroup(InternalFrameLayout.createSequentialGroup()
+        							.addGap(598)
+        							.addComponent(jLabel35))
+        						.addGroup(InternalFrameLayout.createSequentialGroup()
+        							.addGap(4)
         							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        								.addComponent(autoPointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        								.addComponent(auto))
-        							.addPreferredGap(ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
-        							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        								.addComponent(telePointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(autoScoring)
         								.addGroup(InternalFrameLayout.createSequentialGroup()
-        									.addComponent(tele)
-        									.addGap(76)
         									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        										.addComponent(foulPointCount, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
-        										.addComponent(foul))
-        									.addGap(75)
+        										.addComponent(baseline)
+        										.addComponent(baselineTxt)
+        										.addComponent(label, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(touchPadTxt)
+        										.addComponent(chckbxActivated))
+        									.addGap(186)
         									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        										.addComponent(totalCounting)
-        										.addComponent(totalPointCount, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE))))
-        							.addGap(214)))
-        					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(jLabel21)))
-        			.addGap(0)
-        			.addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.RELATED)
+        										.addComponent(autoLowGoalTxt)
+        										.addComponent(autoLowGoalCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(teleLowGoalTxt)
+        										.addComponent(teleLowGoalCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
+        									.addGap(46)
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(teleHighGoalCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(teleHighGoalTxt)
+        										.addComponent(autoHighGoalTxt)
+        										.addComponent(autoHighGoalCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)))
+        								.addGroup(InternalFrameLayout.createSequentialGroup()
+        									.addComponent(jLabel21)
+        									.addPreferredGap(ComponentPlacement.RELATED)
+        									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(extra, GroupLayout.PREFERRED_SIZE, 567, GroupLayout.PREFERRED_SIZE))))))))
         			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 567, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(extra, GroupLayout.PREFERRED_SIZE, 567, GroupLayout.PREFERRED_SIZE))
-        			.addContainerGap())
+        				.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        					.addGroup(InternalFrameLayout.createSequentialGroup()
+        						.addPreferredGap(ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+        						.addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addGap(579))
+        					.addGroup(InternalFrameLayout.createSequentialGroup()
+        						.addGap(4)
+        						.addComponent(jLabel30)
+        						.addContainerGap()))
+        				.addGroup(InternalFrameLayout.createSequentialGroup()
+        					.addGap(64)
+        					.addComponent(jTextArea1, GroupLayout.PREFERRED_SIZE, 565, GroupLayout.PREFERRED_SIZE)
+        					.addContainerGap())))
         );
         InternalFrameLayout.setVerticalGroup(
         	InternalFrameLayout.createParallelGroup(Alignment.LEADING)
         		.addGroup(InternalFrameLayout.createSequentialGroup()
         			.addContainerGap()
-        			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING, false)
+        			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(StandScout)
+        				.addComponent(jLabel30))
+        			.addGap(18)
+        			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
         				.addGroup(InternalFrameLayout.createSequentialGroup()
-        					.addComponent(StandScout)
-        					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(jLabel35)
         					.addGap(13)
         					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
@@ -575,76 +427,42 @@ public class PracticeFrame extends javax.swing.JFrame {
         					.addComponent(autoScoring)
         					.addGap(18)
         					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(autoLowGoalTxt)
         						.addComponent(baselineTxt)
-        						.addComponent(moatTxt)
-        						.addComponent(rockWallTxt)
-        						.addComponent(drawbridgeTxt))
+        						.addComponent(autoGearsTxt)
+        						.addComponent(autoHighGoalTxt))
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(moatCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         						.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
-        							.addComponent(rockWallCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        							.addComponent(drawbridgeCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        						.addComponent(baseline))
-        					.addGap(18)
-        					.addComponent(label, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+        							.addComponent(autoLowGoalCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        							.addComponent(autoHighGoalCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        						.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        							.addComponent(baseline)
+        							.addComponent(autoGearsCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
         					.addGap(19)
+        					.addComponent(label, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+        					.addGap(18)
         					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
-        						.addComponent(seeSawTxt)
-        						.addComponent(rampartsTxt)
-        						.addComponent(doorTxt)
-        						.addComponent(roughtTerrainTxt))
+        						.addComponent(teleLowGoalTxt)
+        						.addComponent(touchPadTxt)
+        						.addComponent(teleGearsTxt)
+        						.addComponent(teleHighGoalTxt))
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        						.addGroup(InternalFrameLayout.createSequentialGroup()
-        							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        								.addComponent(seeSawCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        								.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
-        									.addComponent(rampartsCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        									.addComponent(doorCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-        							.addGap(18)
-        							.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
-        								.addComponent(capture)
-        								.addComponent(capture1)
-        								.addComponent(breach)))
-        						.addComponent(roughTerrainCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-        				.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
-        					.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 377, GroupLayout.PREFERRED_SIZE)
-        					.addComponent(jLabel30)))
-        			.addGap(18)
-        			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(InternalFrameLayout.createSequentialGroup()
-        					.addComponent(extra, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        					.addContainerGap())
-        				.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        					.addGroup(InternalFrameLayout.createSequentialGroup()
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(teleLowGoalCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(chckbxActivated)
+        						.addComponent(teleGearsCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(teleHighGoalCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        					.addGap(44)
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
         						.addComponent(jLabel21)
-        						.addContainerGap())
-        					.addGroup(InternalFrameLayout.createSequentialGroup()
-        						.addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        						.addGap(333))
-        					.addGroup(InternalFrameLayout.createSequentialGroup()
-        						.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
-        							.addComponent(Calculate)
-        							.addComponent(calculated, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        							.addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
-        						.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        						.addComponent(jLabel1)
-        						.addGap(21)
-        						.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
-        							.addComponent(auto, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-        							.addComponent(tele)
-        							.addComponent(foul)
-        							.addComponent(totalCounting))
-        						.addPreferredGap(ComponentPlacement.RELATED)
-        						.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
-        							.addComponent(foulPointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        							.addComponent(telePointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        							.addComponent(autoPointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        							.addComponent(totalPointCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        						.addGap(85)
-        						.addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-        						.addGap(26)))))
+        						.addComponent(extra, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)))
+        				.addComponent(jTextArea1, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE))
+        			.addGap(22)
+        			.addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addGap(100)
+        			.addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+        			.addGap(192))
         );
         InternalFrame.setLayout(InternalFrameLayout);
 
@@ -662,56 +480,21 @@ public class PracticeFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void capture1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capture1ActionPerformed
+    private void autoHighGoalCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_autoHighGoalCountFocusLost
         // TODO add your handling code here:
-        if (capture1.isSelected()){
-            climbed = 15;
-        }
-        else{
-            climbed = 0;
-        }
-    }//GEN-LAST:event_capture1ActionPerformed
+    }//GEN-LAST:event_autoHighGoalCountFocusLost
 
-    private void totalPointCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_totalPointCountFocusLost
+    private void teleHighGoalCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_teleHighGoalCountFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_totalPointCountFocusLost
+    }//GEN-LAST:event_teleHighGoalCountFocusLost
 
-    private void captureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_captureActionPerformed
+    private void teleLowGoalCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_teleLowGoalCountFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_captureActionPerformed
+    }//GEN-LAST:event_teleLowGoalCountFocusLost
 
-    private void rockWallCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rockWallCountFocusLost
+    private void teleGearsCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_teleGearsCountFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_rockWallCountFocusLost
-
-    private void roughTerrainCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_roughTerrainCountFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_roughTerrainCountFocusLost
-
-    private void doorCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doorCountFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doorCountFocusLost
-
-    private void rampartsCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rampartsCountFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rampartsCountFocusLost
-
-    private void seeSawCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_seeSawCountFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_seeSawCountFocusLost
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jButton1FocusGained
-        // TODO add your handling code here:
-        points();
-    }//GEN-LAST:event_jButton1FocusGained
-
-    private void breachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_breachActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_breachActionPerformed
+    }//GEN-LAST:event_teleGearsCountFocusLost
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
@@ -777,41 +560,26 @@ public class PracticeFrame extends javax.swing.JFrame {
         teamNumTxt.setText("");
     }//GEN-LAST:event_teamNumTxtFocusGained
 
-    private void drawbridgeCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_drawbridgeCountFocusLost
+    private void autoLowGoalCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_autoLowGoalCountFocusLost
         // TODO add your handling code here:
-        drawbridge = Integer.parseInt(drawbridgeCount.getValue().toString());
-    }//GEN-LAST:event_drawbridgeCountFocusLost
+        autoLowGoal = Integer.parseInt(autoLowGoalCount.getValue().toString());
+    }//GEN-LAST:event_autoLowGoalCountFocusLost
 
-    private void moatCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_moatCountFocusLost
+    private void autoGearsCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_autoGearsCountFocusLost
         // TODO add your handling code here:
-        moat = Integer.parseInt(moatCount.getValue().toString());
-    }//GEN-LAST:event_moatCountFocusLost
-
-    private void foulPointCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_foulPointCountFocusLost
-        // TODO add your handling code here:
-        foulPoints = Integer.parseInt(foulPointCount.getValue().toString());
-    }//GEN-LAST:event_foulPointCountFocusLost
-
-    private void autoPointCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_autoPointCountFocusLost
-        // TODO add your handling code here:
-        autoPoints = Integer.parseInt(autoPointCount.getValue().toString());
-    }//GEN-LAST:event_autoPointCountFocusLost
-
-    private void telePointCountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telePointCountFocusLost
-        // TODO add your handling code here:
-        teleOpPoints = Integer.parseInt(telePointCount.getValue().toString());
-    }//GEN-LAST:event_telePointCountFocusLost
+        autoGears = Integer.parseInt(autoGearsCount.getValue().toString());
+    }//GEN-LAST:event_autoGearsCountFocusLost
 
     /**
      * @param args the command line arguments
      */
     public void setAllValues() {
-        breachPoints = breach.isSelected();
-        if (breach.isSelected()){
-            breached = 20;
+        baseline = baseline.isSelected(); //EDIT get check box to work probably have to use other variables
+        if (baseline == true){
+            baseline = true;
         }
         else{
-            breached = 0;
+            baseline = false;
         }
         capturePoints = capture.isSelected();
         if(capture.isSelected()){
@@ -829,11 +597,7 @@ public class PracticeFrame extends javax.swing.JFrame {
         }
 
         
-        teleOpPoints = Integer.parseInt(telePointCount.getValue().toString());
-        autoPoints = Integer.parseInt(autoPointCount.getValue().toString());
-        foulPoints = Integer.parseInt(foulPointCount.getValue().toString());
-        total = Integer.parseInt(totalPointCount.getValue().toString());
-        numTotes = gateway + moat + drawbridge + lowBar + ramparts + door + roughTerrain;
+        numTotes = baseline + autoGears + autoLowGoal + lowBar + teleLowGoal + teleHighGoal + touchPad;
         gamePoints = teleOpPoints + autoPoints - foulPoints;
         
         extraPoints = breached + captured;
@@ -841,16 +605,13 @@ public class PracticeFrame extends javax.swing.JFrame {
     }
 
     public void points() {
-        moat = (Integer.parseInt(moatCount.getValue().toString())) * 5;
-        drawbridge = (Integer.parseInt(drawbridgeCount.getValue().toString())) * 5;
-        rockWall = (Integer.parseInt(rockWallCount.getValue().toString())) * 5;
-        seeSaw = (Integer.parseInt(seeSawCount.getValue().toString())) * 5;
-        ramparts = (Integer.parseInt(rampartsCount.getValue().toString())) * 5;
-        door = (Integer.parseInt(doorCount.getValue().toString())) * 5;
-        roughTerrain = (Integer.parseInt(roughTerrainCount.getValue().toString())) * 5;
-        totalUpdate = gateway + moat + drawbridge + rockWall + lowBar + seeSaw + ramparts + door + roughTerrain + high + low + climbed;
-        calculated.setText(Integer.toUnsignedString(totalUpdate));
-        calculated.update(calculated.getGraphics());
+        autoGears = (Integer.parseInt(autoGearsCount.getValue().toString())) * 5;
+        autoLowGoal = (Integer.parseInt(autoLowGoalCount.getValue().toString())) * 5;
+        autoHighGoal = (Integer.parseInt(autoHighGoalCount.getValue().toString())) * 5;
+        teleGears = (Integer.parseInt(teleGearsCount.getValue().toString())) * 5;
+        teleLowGoal = (Integer.parseInt(teleLowGoalCount.getValue().toString())) * 5;
+        teleHighGoal = (Integer.parseInt(teleHighGoalCount.getValue().toString())) * 5;
+        //EDIT point values
     }
 
     public void makeCSV() {
@@ -859,11 +620,10 @@ public class PracticeFrame extends javax.swing.JFrame {
             FileWriter writer = new FileWriter(fileName, true);
             writer.append("Match: " + matchNum + ", " + "Team #: " + teamNumb + ", " + "Autonomous Points: " + autoPoints + ", " + "Tele-Op Points: " + teleOpPoints
                     + "Foul Points: " + foulPoints + ", " + "Total Points: " + total + ", " + "Breach/Capture Points: " + extraPoints + ", " + "Climbing: " + yn + "\n"
-                    + ", " + "Moat: " + Integer.parseInt(moatCount.getValue().toString()) + ", " + "Drawbridge: "
-                    + Integer.parseInt(drawbridgeCount.getValue().toString()) + ", " + "Rock Wall: " + Integer.parseInt(rockWallCount.getValue().toString()) + ", " + ","
-                    + "See-Saw: " + Integer.parseInt(seeSawCount.getValue().toString()) + ", " + "Ramparts: " + Integer.parseInt(rampartsCount.getValue().toString()) + ", " + "Door: "
-                    + Integer.parseInt(doorCount.getValue().toString()) + ", " + "Rough Terrain: " + Integer.parseInt(roughTerrainCount.getValue().toString())
-                    + "Total Points By themselves: " + totalUpdate + "\n" + notes + "\n");
+                    + ", " + "Auto Gears: " + Integer.parseInt(autoGearsCount.getValue().toString()) + ", " + "autoLowGoal: "
+                    + Integer.parseInt(autoLowGoalCount.getValue().toString()) + ", " + "Rock Wall: " + Integer.parseInt(autoHighGoalCount.getValue().toString()) + ", " + ","
+                    + "See-Saw: " + Integer.parseInt(teleGearsCount.getValue().toString()) + ", " + "teleLowGoal: " + Integer.parseInt(teleLowGoalCount.getValue().toString()) + ", " + "teleHighGoal: "
+                    + Integer.parseInt(teleHighGoalCount.getValue().toString()) + ", " + "Total Points By themselves: " + totalUpdate + "\n" + notes + "\n");
             writer.flush();
             writer.close();
         } catch (IOException e) {
@@ -895,19 +655,14 @@ public class PracticeFrame extends javax.swing.JFrame {
         extra.setText(" ");
         //jTextArea3.setText(" ");
         saveButton.setText("Save");
-        telePointCount.setValue(new Integer(0));
-        autoPointCount.setValue(new Integer(0));
-        foulPointCount.setValue(new Integer(0));
-        moatCount.setValue(new Integer(0));
-        drawbridgeCount.setValue(new Integer(0));
-        rockWallCount.setValue(new Integer(0));
-        seeSawCount.setValue(new Integer(0));
-        rampartsCount.setValue(new Integer(0));
-        doorCount.setValue(new Integer(0));
-        roughTerrainCount.setValue(new Integer(0));
-        breach.setSelected(false);
-        capture.setSelected(false);
-        calculated.setText("");
+        autoGearsCount.setValue(new Integer(0));
+        autoLowGoalCount.setValue(new Integer(0));
+        autoHighGoalCount.setValue(new Integer(0));
+        teleGearsCount.setValue(new Integer(0));
+        teleLowGoalCount.setValue(new Integer(0));
+        teleHighGoalCount.setValue(new Integer(0));
+        touchPad = false;
+        baseline = false;
         totalUpdate = 0;
     }
     
@@ -955,54 +710,35 @@ public class PracticeFrame extends javax.swing.JFrame {
         
         
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Calculate;
     private javax.swing.JPanel InternalFrame;
     private javax.swing.JLabel StandScout;
-    private javax.swing.JLabel auto;
-    private javax.swing.JSpinner autoPointCount;
-    private javax.swing.JCheckBox breach;
-    private javax.swing.JTextField calculated;
-    private javax.swing.JCheckBox capture;
-    private javax.swing.JCheckBox capture1;
     private javax.swing.JLabel autoScoring;
-    private javax.swing.JSpinner doorCount;
-    private javax.swing.JLabel doorTxt;
-    private javax.swing.JSpinner drawbridgeCount;
-    private javax.swing.JLabel drawbridgeTxt;
+    private javax.swing.JSpinner teleHighGoalCount;
+    private javax.swing.JLabel teleHighGoalTxt;
+    private javax.swing.JSpinner autoLowGoalCount;
+    private javax.swing.JLabel autoLowGoalTxt;
     private javax.swing.JTextArea extra;
-    private javax.swing.JLabel foul;
-    private javax.swing.JSpinner foulPointCount;
     private javax.swing.JLabel baselineTxt;
-    private javax.swing.JButton jButton1;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel match;
     private javax.swing.JTextField matchNumTxt;
-    private javax.swing.JSpinner moatCount;
-    private javax.swing.JLabel moatTxt;
-    private javax.swing.JSpinner rampartsCount;
-    private javax.swing.JLabel rampartsTxt;
-    private javax.swing.JSpinner rockWallCount;
-    private javax.swing.JLabel rockWallTxt;
-    private javax.swing.JSpinner roughTerrainCount;
-    private javax.swing.JLabel roughtTerrainTxt;
+    private javax.swing.JSpinner autoGearsCount;
+    private javax.swing.JLabel autoGearsTxt;
+    private javax.swing.JSpinner teleLowGoalCount;
+    private javax.swing.JLabel teleLowGoalTxt;
+    private javax.swing.JSpinner autoHighGoalCount;
+    private javax.swing.JLabel autoHighGoalTxt;
+    private javax.swing.JLabel touchPadTxt;
     private javax.swing.JButton saveButton;
-    private javax.swing.JSpinner seeSawCount;
-    private javax.swing.JLabel seeSawTxt;
+    private javax.swing.JSpinner teleGearsCount;
+    private javax.swing.JLabel teleGearsTxt;
     private javax.swing.JTextField teamNumTxt;
-    private javax.swing.JLabel tele;
-    private javax.swing.JSpinner telePointCount;
     private java.awt.TextArea textArea1;
     private javax.swing.JLabel theTeamNum;
-    private javax.swing.JLabel totalCounting;
-    private javax.swing.JSpinner totalPointCount;
 }
