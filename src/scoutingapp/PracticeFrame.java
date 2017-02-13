@@ -23,6 +23,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.AbstractButton;
 import javax.swing.GroupLayout;
 import java.awt.Font;
 import javax.swing.JCheckBox;
@@ -45,22 +46,50 @@ public class PracticeFrame extends javax.swing.JFrame {
     int teleGears;
     int teleLowGoal;
     int teleHighGoal;
-    boolean touchPad;
-    boolean baseline;
     int high;
     int low;
     int total;
 
     String notes;
-    String yn;
-    boolean capturePoints;
-    boolean breachPoints;
-    boolean climbingPoints;
-    int breached;
-    int captured;
-    int climbed;
+    String ynBaseline;
+    String ynTouchpad;
     int extraPoints;
     int totalUpdate;
+    
+    private javax.swing.JPanel InternalFrame;
+    private javax.swing.JLabel StandScout;
+    private javax.swing.JLabel autoScoring;
+    private javax.swing.JSpinner teleHighGoalCount;
+    private javax.swing.JLabel teleHighGoalTxt;
+    private javax.swing.JSpinner autoLowGoalCount;
+    private javax.swing.JLabel autoLowGoalTxt;
+    private javax.swing.JTextArea extra;
+    private javax.swing.JLabel baselineTxt;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel match;
+    private javax.swing.JTextField matchNumTxt;
+    private javax.swing.JSpinner autoGearsCount;
+    private javax.swing.JLabel autoGearsTxt;
+    private javax.swing.JSpinner teleLowGoalCount;
+    private javax.swing.JLabel teleLowGoalTxt;
+    private javax.swing.JSpinner autoHighGoalCount;
+    private javax.swing.JLabel autoHighGoalTxt;
+    private javax.swing.JLabel touchPadTxt;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JSpinner teleGearsCount;
+    private javax.swing.JLabel teleGearsTxt;
+    private javax.swing.JTextField teamNumTxt;
+    private java.awt.TextArea textArea1;
+    private javax.swing.JLabel theTeamNum;
+    private JCheckBox baselineBox;
+    private JCheckBox touchpadBox;
+    
     
     
     
@@ -76,7 +105,6 @@ public class PracticeFrame extends javax.swing.JFrame {
         foulPoints = 0;
         gamePoints = 0;
         name = "";
-        baseline = false;
         autoGears = 0;
         autoLowGoal = 0;
         autoHighGoal = 0;
@@ -84,11 +112,9 @@ public class PracticeFrame extends javax.swing.JFrame {
         teleGears = 0;
         teleLowGoal = 0;
         teleHighGoal = 0;
-        touchPad = false;
         high = 0;
         low = 0;
         extraPoints = 0;
-        climbed = 0;
     }
 
     /**
@@ -129,6 +155,8 @@ public class PracticeFrame extends javax.swing.JFrame {
         teleLowGoalCount = new javax.swing.JSpinner();
         teleHighGoalCount = new javax.swing.JSpinner();
         autoHighGoalCount = new javax.swing.JSpinner();
+        
+        
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -303,13 +331,11 @@ public class PracticeFrame extends javax.swing.JFrame {
         label.setText("Tele-Op");
         label.setFont(new Font("Dialog", Font.BOLD, 14));
         
-        JCheckBox baseline = new JCheckBox("Reached?");
-        baseline.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        
-        JCheckBox chckbxActivated = new JCheckBox("Activated?");
-        chckbxActivated.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        baselineBox = new JCheckBox("Reached?");
+        baselineBox.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        touchpadBox = new JCheckBox("Activated?");
+        touchpadBox.setFont(new Font("Tahoma", Font.PLAIN, 14));
         jTextArea1 = new javax.swing.JTextArea();
-        
                 jTextArea1.setEditable(false);
                 jTextArea1.setColumns(20);
                 jTextArea1.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
@@ -366,11 +392,11 @@ public class PracticeFrame extends javax.swing.JFrame {
         								.addComponent(autoScoring)
         								.addGroup(InternalFrameLayout.createSequentialGroup()
         									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        										.addComponent(baseline)
+        										.addComponent(baselineBox)
         										.addComponent(baselineTxt)
         										.addComponent(label, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
         										.addComponent(touchPadTxt)
-        										.addComponent(chckbxActivated))
+        										.addComponent(touchpadBox))
         									.addGap(186)
         									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
         										.addComponent(autoLowGoalTxt)
@@ -384,11 +410,13 @@ public class PracticeFrame extends javax.swing.JFrame {
         										.addComponent(autoHighGoalTxt)
         										.addComponent(autoHighGoalCount, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)))
         								.addGroup(InternalFrameLayout.createSequentialGroup()
+        									.addPreferredGap(ComponentPlacement.RELATED)
         									.addComponent(jLabel21)
         									.addPreferredGap(ComponentPlacement.RELATED)
         									.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
-        										.addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
-        										.addComponent(extra, GroupLayout.PREFERRED_SIZE, 567, GroupLayout.PREFERRED_SIZE))))))))
+        										.addComponent(extra, GroupLayout.PREFERRED_SIZE, 567, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE))))
+        							.addPreferredGap(ComponentPlacement.RELATED)))))
         			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
         				.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
         					.addGroup(InternalFrameLayout.createSequentialGroup()
@@ -414,6 +442,11 @@ public class PracticeFrame extends javax.swing.JFrame {
         			.addGap(18)
         			.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
         				.addGroup(InternalFrameLayout.createSequentialGroup()
+        					.addComponent(jTextArea1, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
+        					.addGap(22)
+        					.addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        					.addGap(100))
+        				.addGroup(InternalFrameLayout.createSequentialGroup()
         					.addComponent(jLabel35)
         					.addGap(13)
         					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
@@ -437,7 +470,7 @@ public class PracticeFrame extends javax.swing.JFrame {
         							.addComponent(autoLowGoalCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         							.addComponent(autoHighGoalCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
         						.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
-        							.addComponent(baseline)
+        							.addComponent(baselineBox)
         							.addComponent(autoGearsCount, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
         					.addGap(19)
         					.addComponent(label, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
@@ -450,17 +483,14 @@ public class PracticeFrame extends javax.swing.JFrame {
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
         						.addComponent(teleLowGoalCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        						.addComponent(chckbxActivated)
+        						.addComponent(touchpadBox)
         						.addComponent(teleGearsCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         						.addComponent(teleHighGoalCount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        					.addGap(44)
-        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.BASELINE)
-        						.addComponent(jLabel21)
-        						.addComponent(extra, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)))
-        				.addComponent(jTextArea1, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE))
-        			.addGap(22)
-        			.addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        			.addGap(100)
+        					.addPreferredGap(ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+        					.addGroup(InternalFrameLayout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(extra, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(jLabel21))
+        					.addGap(63)))
         			.addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
         			.addGap(192))
         );
@@ -498,7 +528,6 @@ public class PracticeFrame extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-        points();
         setAllValues();
         makeCSV();
         clearForm();
@@ -574,56 +603,32 @@ public class PracticeFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public void setAllValues() {
-        baseline = baseline.isSelected(); //EDIT get check box to work probably have to use other variables
-        if (baseline == true){
-            baseline = true;
+        if(touchpadBox.isSelected()){
+        	ynTouchpad = "Yes";
         }
         else{
-            baseline = false;
+        	ynTouchpad = "No";
         }
-        capturePoints = capture.isSelected();
-        if(capture.isSelected()){
-            captured = 25;
-        }
-        else{
-            captured = 0;
-        }
-        climbingPoints = capture1.isSelected();
-        if (climbingPoints == true){
-            yn = "Yes";
+        if(baselineBox.isSelected()){
+        	ynBaseline = "Yes";
         }
         else{
-            yn = "No";
+        	ynBaseline = "No";
         }
-
-        
-        numTotes = baseline + autoGears + autoLowGoal + lowBar + teleLowGoal + teleHighGoal + touchPad;
-        gamePoints = teleOpPoints + autoPoints - foulPoints;
-        
-        extraPoints = breached + captured;
         notes = extra.getText();
-    }
-
-    public void points() {
-        autoGears = (Integer.parseInt(autoGearsCount.getValue().toString())) * 5;
-        autoLowGoal = (Integer.parseInt(autoLowGoalCount.getValue().toString())) * 5;
-        autoHighGoal = (Integer.parseInt(autoHighGoalCount.getValue().toString())) * 5;
-        teleGears = (Integer.parseInt(teleGearsCount.getValue().toString())) * 5;
-        teleLowGoal = (Integer.parseInt(teleLowGoalCount.getValue().toString())) * 5;
-        teleHighGoal = (Integer.parseInt(teleHighGoalCount.getValue().toString())) * 5;
-        //EDIT point values
     }
 
     public void makeCSV() {
         String fileName = "Match " + matchNum + " " + teamNumb + ".csv";
         try {
             FileWriter writer = new FileWriter(fileName, true);
-            writer.append("Match: " + matchNum + ", " + "Team #: " + teamNumb + ", " + "Autonomous Points: " + autoPoints + ", " + "Tele-Op Points: " + teleOpPoints
-                    + "Foul Points: " + foulPoints + ", " + "Total Points: " + total + ", " + "Breach/Capture Points: " + extraPoints + ", " + "Climbing: " + yn + "\n"
-                    + ", " + "Auto Gears: " + Integer.parseInt(autoGearsCount.getValue().toString()) + ", " + "autoLowGoal: "
-                    + Integer.parseInt(autoLowGoalCount.getValue().toString()) + ", " + "Rock Wall: " + Integer.parseInt(autoHighGoalCount.getValue().toString()) + ", " + ","
-                    + "See-Saw: " + Integer.parseInt(teleGearsCount.getValue().toString()) + ", " + "teleLowGoal: " + Integer.parseInt(teleLowGoalCount.getValue().toString()) + ", " + "teleHighGoal: "
-                    + Integer.parseInt(teleHighGoalCount.getValue().toString()) + ", " + "Total Points By themselves: " + totalUpdate + "\n" + notes + "\n");
+            writer.append("Match " + ", " + "Team # " + ", " + "Baseline " + ", " + "Auto Gears Delivered " + ", " + "Auto Low Goal " + ", "
+            		+ "Auto High Goal " + ", " + "TeleOp Gears Delivered " + ", " + "TeleOp Low Goal " + ", " + "TeleOp High Goal " + ", " + "Touchpad Activated " + ", " + "Notes" + "\n" 
+            		+ matchNum + ", " + teamNumb + ", " + ynBaseline
+                    + ", " + Integer.parseInt(autoGearsCount.getValue().toString()) + ", "
+                    + Integer.parseInt(autoLowGoalCount.getValue().toString()) + ", " + Integer.parseInt(autoHighGoalCount.getValue().toString()) + ", "
+                    + Integer.parseInt(teleGearsCount.getValue().toString()) + ", " + Integer.parseInt(teleLowGoalCount.getValue().toString()) + ", "
+                    + Integer.parseInt(teleHighGoalCount.getValue().toString()) + ", " + ynTouchpad + ", " + notes + "\n");
             writer.flush();
             writer.close();
         } catch (IOException e) {
@@ -661,21 +666,10 @@ public class PracticeFrame extends javax.swing.JFrame {
         teleGearsCount.setValue(new Integer(0));
         teleLowGoalCount.setValue(new Integer(0));
         teleHighGoalCount.setValue(new Integer(0));
-        touchPad = false;
-        baseline = false;
         totalUpdate = 0;
+        baselineBox.setSelected(false);
+        touchpadBox.setSelected(false);
     }
-    
-    public void MainClass() {
-    this.setTitle("Picture Application");
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    JPanel panel1 = new JPanel();
-    ImageIcon pic = new ImageIcon("Portcullis.png");
-    panel1.add(new JLabel(pic));
-    getContentPane().add(panel1);
-    this.pack();
-    this.setVisible(true);
-  }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -710,35 +704,4 @@ public class PracticeFrame extends javax.swing.JFrame {
         
         
     }
-    private javax.swing.JPanel InternalFrame;
-    private javax.swing.JLabel StandScout;
-    private javax.swing.JLabel autoScoring;
-    private javax.swing.JSpinner teleHighGoalCount;
-    private javax.swing.JLabel teleHighGoalTxt;
-    private javax.swing.JSpinner autoLowGoalCount;
-    private javax.swing.JLabel autoLowGoalTxt;
-    private javax.swing.JTextArea extra;
-    private javax.swing.JLabel baselineTxt;
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel match;
-    private javax.swing.JTextField matchNumTxt;
-    private javax.swing.JSpinner autoGearsCount;
-    private javax.swing.JLabel autoGearsTxt;
-    private javax.swing.JSpinner teleLowGoalCount;
-    private javax.swing.JLabel teleLowGoalTxt;
-    private javax.swing.JSpinner autoHighGoalCount;
-    private javax.swing.JLabel autoHighGoalTxt;
-    private javax.swing.JLabel touchPadTxt;
-    private javax.swing.JButton saveButton;
-    private javax.swing.JSpinner teleGearsCount;
-    private javax.swing.JLabel teleGearsTxt;
-    private javax.swing.JTextField teamNumTxt;
-    private java.awt.TextArea textArea1;
-    private javax.swing.JLabel theTeamNum;
 }
