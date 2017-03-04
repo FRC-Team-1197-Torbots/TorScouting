@@ -622,9 +622,7 @@ public class PracticeFrame extends javax.swing.JFrame {
         String fileName = "Match " + matchNum + " " + teamNumb + ".csv";
         try {
             FileWriter writer = new FileWriter(fileName, true);
-            writer.append("Match " + ", " + "Team # " + ", " + "Baseline " + ", " + "Auto Gears Delivered " + ", " + "Auto Low Goal " + ", "
-            		+ "Auto High Goal " + ", " + "TeleOp Gears Delivered " + ", " + "TeleOp Low Goal " + ", " + "TeleOp High Goal " + ", " + "Touchpad Activated " + ", " + "Notes" + "\n" 
-            		+ matchNum + ", " + teamNumb + ", " + ynBaseline
+            writer.append(matchNum + ", " + teamNumb + ", " + ynBaseline
                     + ", " + Integer.parseInt(autoGearsCount.getValue().toString()) + ", "
                     + Integer.parseInt(autoLowGoalCount.getValue().toString()) + ", " + Integer.parseInt(autoHighGoalCount.getValue().toString()) + ", "
                     + Integer.parseInt(teleGearsCount.getValue().toString()) + ", " + Integer.parseInt(teleLowGoalCount.getValue().toString()) + ", "
